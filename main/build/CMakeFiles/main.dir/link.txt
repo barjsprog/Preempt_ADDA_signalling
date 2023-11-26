@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -o -g  -lpthread  -lbcm2835  CMakeFiles/main.dir/main.cpp.o -o main  -lpthread -lbcm2835 
