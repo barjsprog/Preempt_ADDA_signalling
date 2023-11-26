@@ -1,5 +1,0 @@
-sudo ./load_kbs
-
-sudo ./kill
-
-sudo ./rel 
