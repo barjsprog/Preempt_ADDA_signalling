@@ -1,0 +1,84 @@
+if(isReady())
+    {
+        
+        //ADS1256_GetAll(ADC);
+        
+        ////UDOUBLE ADC[8],i;
+        ////float x;
+        //x = (ADC[1] >> 7)*5.0/0xffff;
+        ////printf(" %f \r \n ", x);
+        ////printf("\33[9A");//Move the cursor up 8 lines
+                
+         //printf("0 : %f\r\n",ADS1256_GetChannalValue(0)*5.0/0x7fffff);
+         //printf("1 : %f\r\n",ADS1256_GetChannalValue(1)*5.0/0x7fffff);
+         //printf("2 : %f\r\n",ADS1256_GetChannalValue(2)*5.0/0x7fffff);
+         //printf("3 : %f\r\n",ADS1256_GetChannalValue(3)*5.0/0x7fffff);
+         //printf("4 : %f\r\n",ADS1256_GetChannalValue(4)*5.0/0x7fffff);
+         //printf("5 : %f\r\n",ADS1256_GetChannalValue(5)*5.0/0x7fffff);
+         //printf("6 : %f\r\n",ADS1256_GetChannalValue(6)*5.0/0x7fffff);
+         //printf("7 : %f\r\n",ADS1256_GetChannalValue(7)*5.0/0x7fffff);
+
+         analog = ADS1256_GetChannalValue(7)*5.0/0x7fffff;
+         
+    }
+    else
+    analog = analog;
+    
+    //for(i=0;i<8;i++)
+    //{
+        //printf("%d %f\r",i,ADC[i]*5.0/0x7fffff);
+    //}
+    
+    
+    
+    if(Rt < 3){chirp1 = 1.65;}
+    else
+    chirp1 = Chirp(0,30,1.35,5,Rt-3)+1.65;
+    
+    
+    Rt=Rt+dt;
+    
+    //if (Rt < 5){
+    //cur = 0;}
+    //else if (Rt >= 5 & Rt < 6) {
+    //cur = 1.53;
+    //}    
+    //else
+    //cur = 0;
+    
+    
+    //cur = 1;
+    volt = 1.078*cur + 1.65;
+    printf(" %f %f %f \n " , Rt,chirp1,-1*analog+1.35+1.65+1.55);
+    
+    
+    
+    
+    DAC8532_Out_Voltage(channel_B, 0);
+    
+    DAC8532_Out_Voltage(channel_A,  chirp1);
+    
+    
+    
+    
+    //usleep(1000);
+    ////printf("demo\r\n");
+    
+    ////printf("Program start\r\n");
+    
+        ////if(ADS1256_init() == 1){
+        ////printf("\r\nEND                  \r\n");
+        ////DEV_ModuleExit();
+        ////exit(0);
+    ////}
+    
+    
+
+
+    //printf("%d %f\r\n",i,ADC[i]*5.0/0x7fffff);
+    //std::cout << ADC[1] << " \n";
+        
+
+    //x = (ADC[0] >> 7)*5.0/0xffff;
+    //printf(" %f \r\n", x);
+    //printf("\33[9A");//Move the cursor up 8 lines
