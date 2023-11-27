@@ -48,4 +48,14 @@ Install BCM2835 libraries: (For to use gpio pins of the RPi) [1]
 	sudo ./configure && sudo make && sudo make check && sudo make install
 	# For more, you can refer to the official website at: http://www.airspayce.com/mikem/bcm2835/
 	
+Setup the AD/DA board demo for analog input and output examples, better to try Waveshare device. 
 
+	sudo apt-get install p7zip-full
+	wget https://www.waveshare.com/w/upload/5/5e/High-Precision-AD-DA-Board-Code.7z
+	7z x High-Precision-AD-DA-Board-Code.7z -r -o./High-Precision-AD-DA-Board-Code
+	cd High-Precision-AD-DA-Board-Code/RaspberryPI/
+
+For a basic rt application please refer to the: 
+
+ - This is real time application code, it does not send signal to the analog output nor read. We will combine the two of them.
+ - [Linux Foundation Wiki](https://wiki.linuxfoundation.org/realtime/documentation/howto/applications/start)
