@@ -10,3 +10,34 @@ ADS1256 is an analog to digital converter (ADC) that can be used to convert anal
 
 https://wiki.linuxfoundation.org/realtime/documentation/howto/applications/start
 
+TL: DR 
+
+- Install RT kernel to RPi
+- Install CMake
+- Instal BCM2835
+- Realtime Codes are from the linux wiki, Analog output input codes are from waveshare website “example codes”.
+- Use the code in the files.
+
+Guide for the code provided:
+(This guide is for the RPİ3 with all the kernels have been set.)
+
+- Download the files.
+- Edit CMakeTextList.txt file's include directory to your include directory.
+- Terminal enter the /main/build and write : > cmake..
+- For variables I used roboleg_func.hpp
+- You do not touch main.cpp file.
+- The realtime loop code is in roboleg_func.cpp, to adjust sampling frequency edit : simple_cyclic_task()
+
+
+  Installing Guide:
+
+  # Install RT Kernel
+
+- [Lemariva - Preempt RT Patching](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)  - Do according to tutorial.
+
+  Performance:
+  
+  - Everytime you open the RPi enter the command below.
+    - sudo -Es
+    - echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
