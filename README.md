@@ -18,7 +18,7 @@ TL: DR
 - Realtime Codes are from the linux wiki, Analog output input codes are from waveshare website “example codes”.
 - Use the code in the files.
 
-Guide for the code provided:
+EDIT THIS: Guide for the code provided: 
 (This guide is for the RPİ3 with all the kernels have been set.)
 
 - Download the files.
@@ -28,16 +28,24 @@ Guide for the code provided:
 - You do not touch main.cpp file.
 - The realtime loop code is in roboleg_func.cpp, to adjust sampling frequency edit : simple_cyclic_task()
 
+Installing Guide:
 
-  Installing Guide:
+# Install RT Kernel
+-[Lemariva - Preempt RT Patching](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)  - Do according to tutorial.
+-[Lemariva - Preempt RT Patching RPi4](https://lemariva.com/blog/2019/09/raspberry-pi-4b-preempt-rt-kernel-419y-performance-test) - Raspberry Pi 4b
 
-  # Install RT Kernel
+Performance:
+- Everytime you open the RPi enter the command below.
+  - sudo -Es
+  - echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
-- [Lemariva - Preempt RT Patching](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)  - Do according to tutorial.
+Install BCM2835 libraries: (For to use gpio pins of the RPi) [1]
 
-  Performance:
-  
-  - Everytime you open the RPi enter the command below.
-    - sudo -Es
-    - echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+	#Open the Raspberry Pi terminal and run the following command
+	wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.71.tar.gz
+	tar zxvf bcm2835-1.71.tar.gz
+	cd bcm2835-1.71/
+	sudo ./configure && sudo make && sudo make check && sudo make install
+	# For more, you can refer to the official website at: http://www.airspayce.com/mikem/bcm2835/
+	
 
