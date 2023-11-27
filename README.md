@@ -59,3 +59,41 @@ For a basic rt application please refer to the:
 
  - This is real time application code, it does not send signal to the analog output nor read. We will combine the two of them.
  - [Linux Foundation Wiki](https://wiki.linuxfoundation.org/realtime/documentation/howto/applications/start)
+   Simple Example Code:
+   
+		   struct period_info {
+		        struct timespec next_period;
+		        long period_ns;
+		};
+		 
+		static void inc_period(struct period_info *pinfo) 
+		{
+		        pinfo->next_period.tv_nsec += pinfo->period_ns;
+		 
+		        while (pinfo->next_period.tv_nsec >= 1000000000) {
+		                /* timespec nsec overflow */
+		                pinfo->next_period.tv_sec++;
+		                pinfo->next_period.tv_nsec -= 1000000000;
+		        }
+		}
+		 
+		static void periodic_task_init(struct period_info *pinfo)
+		{
+		        /* for simplicity, hardcoding a 1ms period */
+		        pinfo->period_ns = 1000000;
+		 
+		        clock_gettime(CLOCK_MONOTONIC, &(pinfo->next_period));
+		}
+		 
+		static void do_rt_task()
+		{
+		        /* Do RT stuff here. */
+		}
+		 
+		static void wait_rest_of_period(struct period_info *pinfo)
+		{
+		        inc_period(pinfo);
+		 
+		        /* for simplicity, ignoring possibilities of signal wakes */
+		        clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &pinfo->next_period, NULL);
+		}
