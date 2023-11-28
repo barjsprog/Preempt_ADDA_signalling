@@ -169,3 +169,25 @@ Source: [Install CMake on Raspberry Pi | Lindevs](https://lindevs.com/install-cm
 
   It seem with this way. We should have 2 analog outputs and 8 analog inputs. I tried for 2 analog outputs and 1 inputs and reached 1Khz. But it seems that without the calculations and such the system works mostly at 0.2µ.
   
+
+
+The time calculated using a function called "chrono::highresolutionclock()"
+
+The library required is to "#include <chrono>"
+
+In the beginning of the code write: 
+
+	"auto start_time = std::chrono::high_resolution_clock::now();  "
+
+At the end of the code write: 
+
+	"auto end_time = std::chrono::high_resolution_clock::now(); "
+
+This code below calculates time pass of the code run in 1 cycle: 
+
+	"auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);  "
+     
+To print the code: 
+
+	float(duration.count())/1000    
+     
