@@ -1,4 +1,4 @@
-# Preemp REALTIME documentation: 
+# Preempt REALTIME documentation: 
 
 This document is a guide to using PREEMPT_RT, which is a patch for the Linux kernel that provides real-time capabilities. In particular, we will be discussing the use of PREEMPT_RT on a Raspberry Pi system, along with the integration of the Waveshare AD/DA converter module. The document will provide an overview of the code used to implement a real-time periodic task, along with explanations and analysis of the various functions used in the code. 
 
@@ -170,6 +170,7 @@ Source: [Install CMake on Raspberry Pi | Lindevs](https://lindevs.com/install-cm
   It seem with this way. We should have 2 analog outputs and 8 analog inputs. I tried for 2 analog outputs and 1 inputs and reached 1Khz. But it seems that without the calculations and such the system works mostly at 0.2µ.
   
 
+Time Calculating
 
 The time calculated using a function called "chrono::highresolutionclock()"
 
@@ -190,4 +191,8 @@ This code below calculates time pass of the code run in 1 cycle:
 To print the code: 
 
 	float(duration.count())/1000    
-     
+
+
+Also, 
+
+
