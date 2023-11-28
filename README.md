@@ -173,7 +173,7 @@ Source: [Install CMake on Raspberry Pi | Lindevs](https://lindevs.com/install-cm
 
 The time calculated using a function called "chrono::highresolutionclock()"
 
-The library required is to "#include <chrono>"
+The library required is to "#include chrono"
 
 In the beginning of the code write: 
 
