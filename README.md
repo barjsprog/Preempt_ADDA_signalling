@@ -14,7 +14,7 @@ TL: DR
 
 - Install RT kernel to RPi
 - Install CMake
-- Instal BCM2835
+- Install BCM2835
 - Realtime Codes are from the linux wiki, Analog output input codes are from waveshare website “example codes”.
 - Use the code in the files.
 
@@ -34,6 +34,8 @@ Installing Guide:
 
 # Install RT Kernel
 -[Lemariva - Preempt RT Patching](https://lemariva.com/blog/2018/07/raspberry-pi-preempt-rt-patching-tutorial-for-kernel-4-14-y)  - Do according to tutorial.
+
+
 -[Lemariva - Preempt RT Patching RPi4](https://lemariva.com/blog/2019/09/raspberry-pi-4b-preempt-rt-kernel-419y-performance-test) - Raspberry Pi 4b
 
 Performance:
