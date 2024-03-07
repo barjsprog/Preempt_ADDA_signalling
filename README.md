@@ -39,13 +39,13 @@ Installing Guide:
 -[Lemariva - Preempt RT Patching RPi4](https://lemariva.com/blog/2019/09/raspberry-pi-4b-preempt-rt-kernel-419y-performance-test) - Raspberry Pi 4b
 
 Installments to Ubuntu:
-Multiple definition of yylloc error: edit the file linux/scripts/dtc/dtc-lexer-lex.c > Find 'YYLYTPE yylloc' add 'extern' to beginning.
-sudo apt-get install zlib1g
-sudo apt-get install libncurses5-dev libncursesw5-dev 
-sudo apt-get install gcc-arm* 
-sudo apt-get install lib32z1
-sudo apt-get install gcc-multilib
-sudo apt-get install libelf-dev
+	Multiple definition of yylloc error: edit the file linux/scripts/dtc/dtc-lexer-lex.c > Find 'YYLYTPE yylloc' add 'extern' to beginning.
+	sudo apt-get install zlib1g
+	sudo apt-get install libncurses5-dev libncursesw5-dev 
+	sudo apt-get install gcc-arm* 
+	sudo apt-get install lib32z1
+	sudo apt-get install gcc-multilib
+	sudo apt-get install libelf-dev
 
 
 
@@ -53,7 +53,6 @@ Performance:
 - Everytime you open the RPi enter the command below.
   - sudo -Es
   - echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-Install CMake:
 
 
 
@@ -72,6 +71,8 @@ Setup the AD/DA board demo for analog input and output examples, better to try W
 	wget https://www.waveshare.com/w/upload/5/5e/High-Precision-AD-DA-Board-Code.7z
 	7z x High-Precision-AD-DA-Board-Code.7z -r -o./High-Precision-AD-DA-Board-Code
 	cd High-Precision-AD-DA-Board-Code/RaspberryPI/
+ 
+Source: https://www.waveshare.com/wiki/High-Precision_AD/DA_Board
 
 For a basic rt application please refer to the: 
 
@@ -210,6 +211,12 @@ To print the code:
 	float(duration.count())/1000    
 
 
-Also, 
+Also, Install in Raspberry Pi as additional tools 
+
+	Gnuplot: sudo apt-get install gnuplot-x11
+ 	Eigen3 : sudo apt-get install libeigen3-dev
+		$ sudo apt-get install libeigen2-dev
+
+
 
 
