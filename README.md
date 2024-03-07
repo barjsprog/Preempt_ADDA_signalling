@@ -38,10 +38,24 @@ Installing Guide:
 
 -[Lemariva - Preempt RT Patching RPi4](https://lemariva.com/blog/2019/09/raspberry-pi-4b-preempt-rt-kernel-419y-performance-test) - Raspberry Pi 4b
 
+Installments to Ubuntu:
+Multiple definition of yylloc error: edit the file linux/scripts/dtc/dtc-lexer-lex.c > Find 'YYLYTPE yylloc' add 'extern' to beginning.
+sudo apt-get install zlib1g
+sudo apt-get install libncurses5-dev libncursesw5-dev 
+sudo apt-get install gcc-arm* 
+sudo apt-get install lib32z1
+sudo apt-get install gcc-multilib
+sudo apt-get install libelf-dev
+
+
+
 Performance:
 - Everytime you open the RPi enter the command below.
   - sudo -Es
   - echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+Install CMake:
+
+
 
 Install BCM2835 libraries: (For to use gpio pins of the RPi) [1]
 
@@ -81,6 +95,7 @@ We can check version of CMake:
 ```
 cmake --version
 ```
+https://linuxhint.com/3-ways-install-cmake-raspberry-pi/ 
 
 ## **Testing CMake**
 
